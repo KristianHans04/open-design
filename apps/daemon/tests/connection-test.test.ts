@@ -242,8 +242,8 @@ describe('POST /api/provider/models', () => {
             supportedGenerationMethods: ['embedContent'],
           },
           {
-            name: 'models/gemini-2.0-flash-001',
-            baseModelId: 'gemini-2.0-flash',
+            name: 'models/gemini-3.1-flash-lite-preview-001',
+            baseModelId: 'gemini-3.1-flash-lite-preview',
             displayName: 'Gemini 2.0 Flash',
             supportedGenerationMethods: ['generateContent', 'countTokens'],
           },
@@ -265,7 +265,7 @@ describe('POST /api/provider/models', () => {
     await expect(res.json()).resolves.toMatchObject({
       ok: true,
       models: [
-        { id: 'gemini-2.0-flash', label: 'Gemini 2.0 Flash' },
+        { id: 'gemini-3.1-flash-lite-preview', label: 'Gemini 2.0 Flash' },
         { id: 'gemini-custom', label: 'Gemini Custom' },
       ],
     });
@@ -1090,7 +1090,7 @@ describe('POST /api/test/connection provider mode', () => {
         protocol: 'google',
         baseUrl: 'https://generativelanguage.googleapis.com',
         apiKey: 'goog-key',
-        model: 'gemini-2.0-flash',
+        model: 'gemini-3.1-flash-lite-preview',
       }),
     });
     const body = (await res.json()) as Record<string, unknown>;
@@ -1100,7 +1100,7 @@ describe('POST /api/test/connection provider mode', () => {
       ([input]) => !String(input).startsWith(baseUrl),
     );
     expect(String(upstream![0])).toBe(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent',
     );
   });
 

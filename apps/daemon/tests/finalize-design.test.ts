@@ -541,11 +541,11 @@ describe('finalizeDesignPackage (pipeline integration)', () => {
       protocol: 'google',
       apiKey: 'AIza-test-key',
       baseUrl: 'https://generativelanguage.googleapis.com',
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.1-flash-lite-preview',
       fetchImpl: fetchImpl as any,
     } as any);
 
-    expect(result.model).toBe('gemini-2.0-flash');
+    expect(result.model).toBe('gemini-3.1-flash-lite-preview');
     expect(result.inputTokens).toBe(4321);
     expect(result.outputTokens).toBe(876);
     expect(fs.readFileSync(result.designMdPath, 'utf8')).toBe(
@@ -555,7 +555,7 @@ describe('finalizeDesignPackage (pipeline integration)', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     const [url, init] = fetchImpl.mock.calls[0]!;
     expect(url).toBe(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent',
     );
     expect((init as RequestInit).headers).toMatchObject({
       'content-type': 'application/json',

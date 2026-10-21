@@ -453,7 +453,7 @@ describe('API proxy routes', () => {
       body: JSON.stringify({
         baseUrl: 'https://generativelanguage.googleapis.com',
         apiKey: 'google-key',
-        model: 'gemini-2.0-flash',
+        model: 'gemini-3.1-flash-lite-preview',
         messages: [{ role: 'user', content: 'hello' }],
       }),
     });
@@ -475,7 +475,7 @@ describe('API proxy routes', () => {
       body: JSON.stringify({
         baseUrl: 'https://generativelanguage.googleapis.com',
         apiKey: 'google-key',
-        model: 'gemini-2.0-flash',
+        model: 'gemini-3.1-flash-lite-preview',
         maxTokens: 1234,
         messages: [{ role: 'user', content: 'hello' }],
       }),

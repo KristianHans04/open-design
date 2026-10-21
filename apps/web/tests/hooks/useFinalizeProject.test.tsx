@@ -19,7 +19,7 @@ const GOOGLE_REQUEST = {
   protocol: 'google',
   apiKey: 'AIza-test',
   baseUrl: 'https://generativelanguage.googleapis.com',
-  model: 'gemini-2.0-flash',
+  model: 'gemini-3.1-flash-lite-preview',
   maxTokens: 8192,
 };
 
@@ -74,7 +74,7 @@ describe('useFinalizeProject', () => {
   it('routes provider-aware requests to the matching finalize endpoint', async () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(jsonResponse({
       ...SUCCESS_BODY,
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.1-flash-lite-preview',
     }));
     const { result } = renderHook(() => useFinalizeProject('p1'));
 

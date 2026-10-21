@@ -140,7 +140,7 @@ export interface MemoryExtractionConfig {
   provider: MemoryExtractionProvider;
   /** Override model id. When empty, the daemon picks a provider default
    *  (`claude-haiku-4-5` for anthropic; `gpt-4o-mini` for openai/azure;
-   *  `gemini-2.0-flash` for google). For azure this is the deployment
+   *  `gemini-3.1-flash-lite-preview` for google). For azure this is the deployment
    *  name, not the underlying model family. */
   model?: string;
   /** Override base URL. When empty, the daemon uses the provider default
